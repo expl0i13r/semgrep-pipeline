@@ -1,0 +1,17 @@
+# buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install semgrep
+  build:
+    commands:
+      - echo "Running Semgrep scan..."
+      - semgrep scan --config=p/default --json > semgrep_output.json || true
+
+artifacts:
+  files:
+    - semgrep_output.json
