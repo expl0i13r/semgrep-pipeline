@@ -1,3 +1,3 @@
-# app.py updated 2025
-def greet(name):
-    print(f"Hello, {name}")
+import subprocess
+user_input = input("Enter a command: ")
+subprocess.call(user_input, shell=True)
